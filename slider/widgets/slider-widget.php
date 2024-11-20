@@ -336,6 +336,154 @@ $this->end_controls_section();
 		
 		$this->end_controls_section();
 		
+		$this->start_controls_section(
+			'section_slider_style',
+			[
+				'label' => esc_html__( 'Slider Style', 'elementor-slider-widget' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'title_typography',
+				'label' => esc_html__( 'Title Typography', 'elementor-slider-widget' ),
+				'selector' => '{{WRAPPER}} .slider-title',
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'content_typography',
+				'label' => esc_html__( 'Content Typography', 'elementor-slider-widget' ),
+				'selector' => '{{WRAPPER}} .slider-content',
+			]
+		);
+		$this->add_control(
+			'title_color',
+			[
+				'label' => esc_html__( 'Title Color', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .slider-title' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'content_color',
+			[
+				'label' => esc_html__( 'Content Color', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#666',
+				'selectors' => [
+					'{{WRAPPER}} .slider-content' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'button_color',
+			[
+				'label' => esc_html__( 'Button Color', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#fff',
+				'selectors' => [
+					'{{WRAPPER}} .slider-button' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		
+		$this->add_control(
+			'button_background',
+			[
+				'label' => esc_html__( 'Button Background Color', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#0073e6',
+				'selectors' => [
+					'{{WRAPPER}} .slider-button' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'title_margin',
+			[
+				'label' => esc_html__( 'Title Margin', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .slider-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_responsive_control(
+			'content_padding',
+			[
+				'label' => esc_html__( 'Content Padding', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .slider-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_responsive_control(
+			'text_alignment',
+			[
+				'label' => esc_html__( 'Text Alignment', 'elementor-slider-widget' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'elementor-slider-widget' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'elementor-slider-widget' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'elementor-slider-widget' ),
+						'icon' => 'eicon-text-align-right',
+					],
+				],
+				'default' => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .slider-title, {{WRAPPER}} .slider-content' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'slider_background',
+				'label' => esc_html__( 'Slider Background', 'elementor-slider-widget' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .slider-wrapper',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'button_border',
+				'label' => esc_html__( 'Button Border', 'elementor-slider-widget' ),
+				'selector' => '{{WRAPPER}} .slider-button',
+			]
+		);
+		
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'slider_shadow',
+				'label' => esc_html__( 'Slider Shadow', 'elementor-slider-widget' ),
+				'selector' => '{{WRAPPER}} .slider-wrapper',
+			]
+		);
+		$this->end_controls_section();
 		
 	}
 
